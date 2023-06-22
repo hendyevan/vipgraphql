@@ -1,0 +1,28 @@
+query GetCharacters(
+	$page: Int!,
+	$name: String,
+	$gender: String,
+	$species: String,
+	$type: String,
+	$status: String
+){
+  characters(page: $page, filter: {
+		name: $name,
+		gender: $gender,
+		species: $species,
+		type: $type,
+		status: $status
+	}) {
+    info {
+      pages
+			next
+			prev
+    }
+    results {
+			id
+      name
+			image
+			species
+    }
+  }
+}

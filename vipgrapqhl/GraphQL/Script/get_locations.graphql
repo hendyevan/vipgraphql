@@ -1,0 +1,24 @@
+query GetLocations(
+	$page: Int!,
+	$name: String,
+	$type: String,
+	$dimension: String
+){
+	locations(page: $page, filter: {
+		name: $name,
+		type: $type,
+		dimension: $dimension
+	}) {
+		info {
+			pages
+			next
+			prev
+		}
+		results {
+			id
+			name
+			type
+			dimension
+		}
+	}
+}
